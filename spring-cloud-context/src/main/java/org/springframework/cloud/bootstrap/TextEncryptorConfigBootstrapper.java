@@ -38,6 +38,7 @@ import org.springframework.util.StringUtils;
  * @author Marcin Grzejszczak
  * @since 3.0.0
  */
+// TODO: 2021/2/16 文本加密相关的
 public class TextEncryptorConfigBootstrapper implements Bootstrapper {
 
 	private static final boolean RSA_IS_PRESENT = ClassUtils
@@ -46,6 +47,7 @@ public class TextEncryptorConfigBootstrapper implements Bootstrapper {
 	@Override
 	public void intitialize(BootstrapRegistry registry) {
 		if (!ClassUtils.isPresent("org.springframework.security.crypto.encrypt.TextEncryptor", null)) {
+			// TODO: 2021/2/16 判断是否依赖了 spring-security-encrypt这个模块，如果没有依赖就啥都不干
 			return;
 		}
 
